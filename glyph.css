@@ -1,0 +1,13 @@
+#glyph_seq {
+	overflow: auto;
+}
+
+#glyph_seq div {
+	float: left;
+	margin: 0.2em;
+}
+
+#glyph_seq div p {
+	text-align: center;
+	margin: 0;
+}
