@@ -15,6 +15,7 @@
 			div_glyph_seq.appendChild(glyph_div);
 			Glyph(glyph_div.getElementsByTagName('canvas'),{canModify: false, glyphStrokes: value.glyph});
 		});
+		document.getElementById('glyph_seq_js.content').innerHTML = '';
 		glyph_sequence.forEach(function(elem){
 			var glyph = document.createElement("span");
 			glyph.textContent = JSON.stringify(elem) + ",";
@@ -41,6 +42,7 @@
 				name: this.name.value,
 				glyph: glyph.glyphStrokes
 			})
+			glyph_sequence.sort(function(a,b){return a.name.localeCompare(b.name)});
 			buildGlyphSequence();
 			glyph.glyphStrokes = {};
 			glyph.draw();
