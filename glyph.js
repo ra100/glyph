@@ -1,8 +1,38 @@
 var Glyph = (function(window, document){
+	function addEvent(element, evnt, funct){
+	  if (element.attachEvent)
+	   return element.attachEvent('on'+evnt, funct);
+	  else
+	   return element.addEventListener(evnt, funct, false);
+	}
+	
+	var onDocumentMouseDown = function(event) {
+	};
+
+	var onDocumentMouseUp = function(event) {
+	};
+
+	var onDocumentMouseMove = function(event) {
+	};
+
+	var InitListeneres = (function(){
+		var initialized = false;
+		return function () {
+			if(initialized) 
+				return true;
+			addEvent(document, 'mousedown', onDocumentMouseDown);
+			addEvent(document, 'mouseup', onDocumentMouseUp);
+			addEvent(document, 'mousemove', onDocumentMouseMove);
+		}
+	});
+	
 	function GlyphObject(canavas) {
 		this.canvas = canvas;
-	}
+		
 
+		InitListeners();
+	}
+	
 	return function(canvas) {
 		if(typeof canvas == 'string') {
 			if(canvas.charAt(0) == '#') {
@@ -34,6 +64,7 @@ var Glyph = (function(window, document){
 				glyphs.push(value.glyph);
 			}
 		});
+		window.Glyphs = glyphs;
 		return glyphs;
 	};
 })(window, document);
