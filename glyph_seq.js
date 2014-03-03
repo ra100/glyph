@@ -1,8 +1,8 @@
 var glyph_sequence = [
 {"name":"[unknown]","glyph":{"0":{"2":true,"4":true},"2":{"9":true},"4":{"9":true}}},
 {"name":"[unknown]","glyph":{"0":{"2":true,"3":true},"2":{"9":true},"3":{"4":true,"5":true},"4":{"5":true},"8":{"10":true},"9":{"10":true}}},
-{"name":"[unknown]","glyph":{"0":{"3":true,"4":true},"3":{"6":true},"4":{"7":true},"6":{"8":true},"7":{"9":true},"8":{"10":true},"9":{"10":true}}},
 {"name":"[unknown]","glyph":{"0":{"3":true,"5":true},"3":{"4":true},"5":{"10":true},"7":{"10":true}}},
+{"name":"[unknown]","glyph":{"0":{"3":true,"4":true},"3":{"6":true},"4":{"7":true},"6":{"8":true},"7":{"9":true},"8":{"10":true},"9":{"10":true}}},
 {"name":"Abandon","glyph":{"2":{"4":true},"4":{"5":true},"5":{"6":true},"6":{"8":true},"8":{"10":true}}},
 {"name":"Adapt","glyph":{"1":{"6":true},"5":{"6":true,"7":true}}},
 {"name":"Advance","glyph":{"0":{"3":true},"3":{"8":true}}},
@@ -53,6 +53,7 @@ var glyph_sequence = [
 {"name":"Government / City / Civilization / Structure","glyph":{"1":{"3":true},"2":{"4":true},"3":{"6":true},"4":{"7":true},"6":{"7":true}}},
 {"name":"Harm","glyph":{"0":{"3":true,"4":true},"3":{"5":true},"4":{"5":true},"5":{"7":true},"7":{"9":true}}},
 {"name":"Harmony / Peace","glyph":{"0":{"3":true,"4":true},"3":{"5":true},"4":{"5":true},"5":{"6":true,"7":true},"6":{"10":true},"7":{"10":true}}},
+{"name":"Have","glyph":{"5":{"6":true,"7":true},"6":{"10":true}}},
 {"name":"Help","glyph":{"1":{"3":true},"3":{"5":true},"5":{"6":true},"6":{"7":true}}},
 {"name":"Hide","glyph":{"2":{"4":true,"7":true},"3":{"4":true},"6":{"7":true}}},
 {"name":"I / Me / Self","glyph":{"3":{"4":true,"10":true},"4":{"10":true}}},
