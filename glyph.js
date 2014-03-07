@@ -54,10 +54,7 @@ var Glyph = (function(window, document){
 		this.glyphStrokes = {};
 		this.activeAnchors = [];
 		extend(this, options);
-		if(this.canModify) {
-			addEvent(this.canvas, 'mousedown', this.onCanvasMouseDown.bind(this));		
-			InitListeners();
-		}
+		this.init();
 	}
 	
 	extend(GlyphObject.prototype, {
@@ -82,6 +79,14 @@ var Glyph = (function(window, document){
 		})(),
 		radius: 0.1,
 		snapLen: 5,
+		
+		init: function() {
+			if(this.canModify) {
+				addEvent(this.canvas, 'mousedown', this.onCanvasMouseDown.bind(this));		
+				InitListeners();
+			}
+			this.canvas.style.background = '#000';
+		},
 		
 		addGlyphStroke: function(from, to) {
 			if(from == to)
@@ -271,11 +276,19 @@ var Glyph = (function(window, document){
 			ctx = this.context(ctx);
 			var radius = this.denormalizeLen(this.radius);
 			center = this.getAnchorPoint(anchor);
+			ctx.save();
 			ctx.beginPath();
 			ctx.arc(center.x, center.y, radius, 0, Math.PI*2, true);
-			ctx.fillStyle = active?'red':'lightgray';
+			ctx.strokeStyle = '#FCE';
+			ctx.lineWidth = radius/4;
+			ctx.shadowColor = '#B8B';
+			ctx.shadowBlur = 10;
+			ctx.fillStyle = active?'red':'black';
 			ctx.fill();
+			ctx.stroke();
+			ctx.restore();
 		},
+
 		
 		drawCalibrationGrid: function(ctx) {
 			ctx = this.context(ctx);
@@ -286,6 +299,7 @@ var Glyph = (function(window, document){
 		
 		drawGlyph: function(ctx) {
 			ctx = this.context(ctx);
+			ctx.save();
 			ctx.beginPath();
 			for(var from in this.glyphStrokes) {
 				for(var to in this.glyphStrokes[from]) {
@@ -299,10 +313,17 @@ var Glyph = (function(window, document){
 			}
 			ctx.strokeStyle = '#3F49D4';
 			ctx.lineWidth = this.denormalizeLen(this.radius/2);
-			ctx.lineCap="round";
-			ctx.lineJoin="round";
+			ctx.lineCap='round';
+			ctx.lineJoin='round';
+			ctx.shadowColor = '#3F49D4';
+			ctx.shadowBlur = 50;
+			ctx.shadowOffsetX = ctx.lineWidth/2;
+			ctx.shadowOffsetY = ctx.lineWidth/2;
 			ctx.stroke();
-			
+			ctx.shadowOffsetX = -ctx.lineWidth/2;
+			ctx.shadowOffsetY = -ctx.lineWidth/2;
+			ctx.stroke();
+			ctx.restore();
 		},
 		
 		draw: function(ctx) {
