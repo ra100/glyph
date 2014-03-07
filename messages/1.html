@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<title>Glyph draw test</title>
+		<link rel="stylesheet" type="text/css" href="../glyph.css">
+		<script type='text/javascript' src='../glyph.js'></script>
+		<script type='text/javascript'>
+		var message = [
+		{"name":"Follow","glyph":{"0":{"4":true},"2":{"4":true,"9":true}}},
+		{"name":"Enlightened","glyph":{"0":{"2":true,"3":true},"2":{"9":true},"3":{"4":true,"5":true},"4":{"5":true},"9":{"10":true}}},
+		{"name":"We","glyph":{"3":{"4":true},"4":{"10":true}}},
+		{"name":"Have","glyph":{"5":{"6":true,"7":true},"6":{"10":true}}},
+		{"name":"COOKIE","glyph":{"0":{"1":true,"2":true},"1":{"8":true},"2":{"4":true,"9":true},"3":{"4":true,"6":true},"4":{"5":true,"7":true},"5":{"6":true},"6":{"7":true,"8":true},"8":{"10":true},"9":{"10":true}}}
+		];
+
+		window.onload = function() {
+			var glyph = Glyph('#glyph',{canModify: false})[0];
+			var translate = document.getElementById('translate');
+			glyph.item = 0;
+			glyph.timer = setInterval(function(){
+				if(glyph.item < message.length) {
+					glyph.glyphStrokes = message[glyph.item].glyph;
+					glyph.draw();
+					translate.innerText = message[glyph.item].name;
+				}
+				glyph.item++;
+				if(glyph.item > message.length)
+					glyph.item = 0;
+			},500);
+		}
+		</script>
+	</head>
+	<body>
+		<div style="float:left">
+		<canvas name="glyph" id="glyph" width="150" height="150"></canvas><br />
+		<p id="translate" style="font-size: xx-large; text-align: center;"/>
+		</div>
+	</body>
+</html>
