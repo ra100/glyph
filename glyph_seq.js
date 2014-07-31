@@ -10,7 +10,7 @@ var glyph_sequence = [
 {"name":"All","glyph":{"0":{"1":true,"2":true},"1":{"8":true},"2":{"9":true},"8":{"10":true},"9":{"10":true}}},
 {"name":"Answer","glyph":{"3":{"4":true},"4":{"7":true},"5":{"7":true}}},
 {"name":"Attack / War","glyph":{"0":{"3":true,"4":true},"3":{"8":true},"4":{"9":true}}},
-{"name":"Avoid / Struggle","glyph":{"0":{"1":true,"4":true},"2":{"4":true,"9":true}}},
+{"name":"Avoid / Struggle","glyph":{"0":{"1":true,"4":true},"2":{"4":true,"7":true}}},
 {"name":"Barrier / Obstacle","glyph":{"0":{"5":true},"5":{"7":true},"7":{"9":true}}},
 {"name":"Begin","glyph":{"0":{"6":true},"6":{"10":true},"7":{"10":true}}},
 {"name":"Being / Human","glyph":{"3":{"4":true,"6":true},"4":{"7":true},"6":{"10":true},"7":{"10":true}}},
